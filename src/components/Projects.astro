@@ -26,7 +26,7 @@ const PROJECTS = [
       'Created from scratch with Next.js and Tailwind CSS, SVGL is a library with a lot of SVG icons that you can use in your projects. It is also open source and you can contribute to it. Optimized for performance and SEO.',
     link: 'https://svgl.vercel.app/',
     github: 'https://github.com/pheralb/svgl',
-    image: '/public/projects/svgl.webp',
+    image: '/projects/svgl.webp',
     tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.REACT],
   },
 ];
@@ -39,7 +39,7 @@ const PROJECTS = [
       <p class="text-lg mb-4 text-pretty">{description}</p>
       <ul class="flex gap-x-2 flex-row mb-2">
         {tags.map((tag) => (
-          <li>
+          <li class="cursor-default">
             <span
               class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
             >
@@ -49,11 +49,13 @@ const PROJECTS = [
           </li>
         ))}
       </ul>
-      <img
-        class="rounded shadow-2xl shadow-white/10"
-        src={image}
-        alt={`Screenshot of the project ${title}`}
-      />
+      <a href={link}>
+        <img
+          class="rounded shadow-2xl shadow-white/10"
+          src={image}
+          alt={`Screenshot of the project ${title}`}
+        />
+      </a>
     </article>
   ))
 }
