@@ -1,6 +1,9 @@
 ---
 import NextJs from './icons/Next.astro';
 import Tailwind from './icons/Tailwind.astro';
+import JavaScript from './icons/JavaScript.astro';
+import Sass from './icons/Sass.astro';
+
 const TAGS = {
   NEXT: {
     name: 'Next.js',
@@ -18,6 +21,18 @@ const TAGS = {
     class: 'bg-blue-500 text-white',
     icon: NextJs,
   },
+
+  JAVASCRIPT: {
+    name: 'JavaScript',
+    class: 'bg-yellow-500/60 text-white',
+    icon: JavaScript,
+  },
+
+  SASS: {
+    name: 'Sass',
+    class: 'bg-pink-400/30 text-white',
+    icon: Sass,
+  },
 };
 const PROJECTS = [
   {
@@ -29,12 +44,21 @@ const PROJECTS = [
     image: '/projects/svgl.webp',
     tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.REACT],
   },
+  {
+    title: 'Developer Week Project',
+    description:
+      'This is my capstone project about developerWeek wich is the largest developer conference & event series including the DeveloperWeek 2023 Conference & Expo, 1,000+ attendee hackathon, 800+ attendee tech hiring expo, and a series of workshops, technical talks, and keynotes.',
+    link: 'https://sparktan24.github.io/Page-web-development-course/index.html',
+    github: 'https://github.com/Sparktan24/Page-web-development-course',
+    image: '/projects/Project-Page.webp',
+    tags: [TAGS.JAVASCRIPT, TAGS.SASS],
+  },
 ];
 ---
 
 {
   PROJECTS.map(({ title, description, link, github, image, tags }) => (
-    <article>
+    <article class="mb-16">
       <h3 class="text-2xl font-semibold text-yellow-200/80 mb-2">{title}</h3>
       <p class="text-lg mb-4 text-pretty">{description}</p>
       <ul class="flex gap-x-2 flex-row mb-2">
