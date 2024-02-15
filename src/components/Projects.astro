@@ -3,35 +3,55 @@ import NextJs from './icons/Next.astro';
 import Tailwind from './icons/Tailwind.astro';
 import JavaScript from './icons/JavaScript.astro';
 import Sass from './icons/Sass.astro';
+import PlayIcon from './icons/Play.astro';
+import GitHubIcon from './icons/GitHub.astro';
 
 const TAGS = {
+  PLAYICON: {
+    name: 'Go live',
+    class: 'bg-green-500/60 text-white',
+    icon: PlayIcon,
+    type: 'linkLive',
+  },
+  GITHUBICON: {
+    name: 'GitHub',
+    class: 'bg-black text-white',
+    icon: GitHubIcon,
+    type: 'linkGitHub',
+  },
+
   NEXT: {
     name: 'Next.js',
     class: 'bg-black text-white',
     icon: NextJs,
+    type: 'tech',
   },
   TAILWIND: {
     name: 'Tailwind CSS',
     class: 'bg-[#003159] text-white',
     icon: Tailwind,
+    type: 'tech',
   },
 
   REACT: {
     name: 'React',
     class: 'bg-blue-500 text-white',
     icon: NextJs,
+    type: 'tech',
   },
 
   JAVASCRIPT: {
     name: 'JavaScript',
     class: 'bg-yellow-500/60 text-white',
     icon: JavaScript,
+    type: 'tech',
   },
 
   SASS: {
     name: 'Sass',
     class: 'bg-pink-400/30 text-white',
     icon: Sass,
+    type: 'tech',
   },
 };
 const PROJECTS = [
@@ -51,7 +71,7 @@ const PROJECTS = [
     link: 'https://sparktan24.github.io/Page-web-development-course/index.html',
     github: 'https://github.com/Sparktan24/Page-web-development-course',
     image: '/projects/Project-Page.webp',
-    tags: [TAGS.JAVASCRIPT, TAGS.SASS],
+    tags: [TAGS.JAVASCRIPT, TAGS.SASS, TAGS.PLAYICON, TAGS.GITHUBICON],
   },
 ];
 ---
@@ -61,17 +81,46 @@ const PROJECTS = [
     <article class="mb-16">
       <h3 class="text-2xl font-semibold text-yellow-200/80 mb-2">{title}</h3>
       <p class="text-lg mb-4 text-pretty">{description}</p>
+
       <ul class="flex gap-x-2 flex-row mb-2">
-        {tags.map((tag) => (
-          <li class="cursor-default">
-            <span
-              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
-            >
-              <tag.icon class="size-4" />
-              {tag.name}
-            </span>
-          </li>
-        ))}
+        {tags.map((tag) => {
+          if (tag.type === 'linkLive') {
+            return (
+              <li class="cursor-default">
+                <a
+                  href={link}
+                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+                >
+                  <tag.icon class="size-4" />
+                  {tag.name}
+                </a>
+              </li>
+            );
+          } else if (tag.type === 'linkGitHub') {
+            return (
+              <li class="cursor-default">
+                <a
+                  href={github}
+                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+                >
+                  <tag.icon class="size-4" />
+                  {tag.name}
+                </a>
+              </li>
+            );
+          } else {
+            return (
+              <li class="cursor-default">
+                <span
+                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+                >
+                  <tag.icon class="size-4" />
+                  {tag.name}
+                </span>
+              </li>
+            );
+          }
+        })}
       </ul>
       <a href={link}>
         <img
