@@ -3,6 +3,7 @@ import NextJs from './icons/Next.astro';
 import Tailwind from './icons/Tailwind.astro';
 import JavaScript from './icons/JavaScript.astro';
 import Sass from './icons/Sass.astro';
+import React from './icons/React.astro';
 import PlayIcon from './icons/Play.astro';
 import GitHubIcon from './icons/GitHub.astro';
 
@@ -36,7 +37,7 @@ const TAGS = {
   REACT: {
     name: 'React',
     class: 'bg-blue-500 text-white',
-    icon: NextJs,
+    icon: React,
     type: 'tech',
   },
 
@@ -112,7 +113,7 @@ const PROJECTS = [
         {tags.map((tag) => {
           if (tag.type === 'linkLive') {
             return (
-              <li class="cursor-default">
+              <li>
                 <a
                   href={link}
                   class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
@@ -124,7 +125,7 @@ const PROJECTS = [
             );
           } else if (tag.type === 'linkGitHub') {
             return (
-              <li class="cursor-default">
+              <li>
                 <a
                   href={github}
                   class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
