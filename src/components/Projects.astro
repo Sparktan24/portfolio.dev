@@ -96,7 +96,7 @@ const PROJECTS = [
     description:
       'This is a demo page called natours where i implement advanced css using sass and 7-1 architecture, and using floats to build the page.',
     link: 'https://sparktan24.github.io/1.-Natours/#',
-    Github: 'https://github.com/Sparktan24/1.-Natours',
+    github: 'https://github.com/Sparktan24/1.-Natours',
     image: '/projects/natours/natours-1.webp',
     tags: [TAGS.SASS, TAGS.PLAYICON, TAGS.GITHUBICON],
   },
@@ -116,7 +116,7 @@ const PROJECTS = [
               <li>
                 <a
                   href={link}
-                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 transition`}
                 >
                   <tag.icon class="size-4" />
                   {tag.name}
@@ -128,7 +128,7 @@ const PROJECTS = [
               <li>
                 <a
                   href={github}
-                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 transition`}
                 >
                   <tag.icon class="size-4" />
                   {tag.name}
